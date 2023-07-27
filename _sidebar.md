@@ -1,11 +1,6 @@
-- [🎨 主页](README.md)
+- [🏠 主页](zh-cn/README.md)
 
-- 👍 用户指南
-    - [🔨 安装与使用](/Usage.md)
-    - [❓ 常见问题](/FAQ.md)
+- [📓 学习笔记](/zh-cn/Learn/README.md)
+    - [💻 ubuntu22.04 学习笔记](/zh-cn/Learn/ubuntu22.04%20_setup_win10.md)
     - 🧩 子模块
         - [💰 LLMoney经济核心](/Submodules/LLMoney.md)
-        - [🔒 权限API](/Submodules/PermAPI.md)
-        - [✨ 粒子API](/Submodules/ParticleAPI.md)
-
-- [💦 更新日志](https://github.com/LiteLDev/LiteLoaderBDS/releases)
