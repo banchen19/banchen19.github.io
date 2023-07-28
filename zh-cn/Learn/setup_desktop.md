@@ -24,17 +24,15 @@ Categories=Developer;
 ## 保存并关闭
 
 保存并关闭文本编辑器。然后将保存了.desktop文件的目录添加到您的$PATH环境变量中，这样系统就能够在应用程序列表中找到它。
-
-```
-export PATH=$PATH:~/.local/share/applications
-```
-或者，您可以将.desktop文件复制到/usr/share/applications/目录下，这样所有用户都可以访问该应用程序。
-```
-sudo cp ~/.local/share/applications/navicat15.desktop /usr/share/applications/
-```
-
 添加权限
 ```
 sudo chmod +x navicat15.desktop
 ```
+
+将.desktop文件复制到/usr/share/applications/目录下，这样所有用户都可以访问该应用程序。
+```
+sudo cp ~/.local/share/applications/navicat15.desktop /usr/share/applications/
+```
+
+可以重启以加载图标
 ## 完成
