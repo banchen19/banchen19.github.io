@@ -6,4 +6,4 @@
 
 > [ubuntu22.04安装激活Navicat15详细教程](/zh-cn/Learn/setup_nv_sql_tools.md)
 
-> [desktop](/zh-cn/Learn/setup_desktop.md)
+> [将navicat15.desktop添加到程序列表](/zh-cn/Learn/setup_desktop.md)

@@ -1,4 +1,4 @@
-# desktop
+# 将navicat15.desktop添加到程序列表
 
 ## 创建.desktop文件
 
