@@ -7,3 +7,5 @@
     - [💻 将navicat15.desktop添加到程序列表](/zh-cn/Learn/setup_desktop.md)
     - 🧩 子模块
         - [💰 LLMoney经济核心](/Submodules/LLMoney.md)
+- [📦 项目](/zh-cn/project/README.md)
+    - [📝 SyncMc多端数据同步](/zh-cn/project/syn_mc.md)
