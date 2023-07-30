@@ -5,7 +5,7 @@ GET请求
 ---
 ### `GET /getinformation_name`
 
-获取玩家权限信息。
+提供玩家名字与玩家密码获取玩家信息
 
 - 请求方式：GET
 - 路径示例：/getinformation_name?name=banchen21&psw=123121
@@ -37,7 +37,7 @@ GET请求
 ---
 ### `GET /getinformation_xuid`
 
-获取玩家权限信息。
+提供玩家xuid与玩家密码获取玩家信息
 
 - 请求方式：GET
 - 路径示例：：/getinformation_xuid?xuid=123&psw=123121
@@ -67,12 +67,12 @@ GET请求
   - 403 Not Found：资源不存在
     - 响应体：`{"code":403,"message":"false"}`
 ---
-### `GET /getsetloginpsw`
+### `GET /setloginpsw`
 
 修改登录密码
 
 - 请求方式：GET
-- 路径示例：/getsetloginpsw?name=123&psw=123121&newpsw=123456
+- 路径示例：/setloginpsw?name=123&psw=123121&newpsw=123456
 - 参数：
   - name：玩家名称
 - 响应：
@@ -84,70 +84,13 @@ GET请求
     "message": "true"
     }
     ```
+    
+  - 400 Bad Request：请求格式无效。
+    - 响应体：`{"code":400,"message": "false"}`
+  - 403 Forbidden：客户端验证失败
+    - 响应体：`{"code":403,"message":"false"}`
   - 404 Not Found：资源不存在
     - 响应体：`{"code":404,"message":"null"}`
-  - 403 Forbidden：验证失败
-    - 响应体：`{"code":403,"message":"false"}`
----
-### `POST /getinformation_all`
-
-获取所有玩家信息。
-
-- 请求方式：POST
-- 路径示例：：/getinformation_all
-- 参数：
-  - 用户数据（JSON）：
-    - name：玩家名称
-    - t：t 值
-    - token：令牌
-    - 请求头：`"Content-Type: application/json"`
-- 请求体参数：
-```json
-{
-    "name": "banchen21",
-    "token": "65f254760c19ef38a9e808478fcef633",
-    "t": "1689344052555"
-}
-```
-- 响应：
-  - 200 OK：成功，返回所有玩家权限信息
-  ```json
-    {
-    "code": 200,
-    "message": {
-        "players": [
-            {
-                "data": "NULL",
-                "device": "1",
-                "ip": "1",
-                "money": 1000,
-                "name": "banchen21",
-                "online": 1,
-                "perm_level": 1,
-                "server_name": "111",
-                "xuid": "123"
-            },
-            {
-                "data": "NULL",
-                "device": "2",
-                "ip": "1",
-                "money": 252,
-                "name": "a",
-                "online": 2,
-                "perm_level": 2,
-                "server_name": "222",
-                "xuid": "321"
-            }
-        ]
-    }
-  }
-    ```
-  - 401 Unauthorized : 密钥超时
-    - 响应体：`{"code":401,"message": "Unauthorized"}`
-  - 403 Forbidden：验证失败
-    - 响应体：`{"code":403,"message": "false"}`
-  - 404 Not Found：资源不存在
-    - 响应体：`{"code":404,"message": "null"}`
 ---
 
 ### `GET /login`
@@ -174,7 +117,7 @@ GET请求
 ---
 ### `GET /getplayer_name`
 
-玩家是否存在
+根据玩家name检查玩家是否存在这个数据库
 
 - 请求方式：GET
 - 路径示例：/getplayer_name?name=123
@@ -195,69 +138,9 @@ GET请求
 ---
 POST 请求
 ---
-### `POST /getinformation_all`
-
-获取所有玩家信息。
-
-- 请求方式：POST
-- 路径示例：：/getinformation_all
-- 参数：
-  - 用户数据（JSON）：
-    - name：玩家名称
-    - t：t 值
-    - token：令牌
-    - 请求头：`"Content-Type: application/json"`
-- 请求体参数：
-```json
-{
-    "name": "banchen21",
-    "token": "65f254760c19ef38a9e808478fcef633",
-    "t": "1689344052555"
-}
-```
-- 响应：
-  - 200 OK：成功，返回所有玩家权限信息
-  ```json
-    {
-    "code": 200,
-    "message": {
-        "players": [
-            {
-                "data": "NULL",
-                "device": "1",
-                "ip": "1",
-                "money": 1000,
-                "name": "banchen21",
-                "online": 1,
-                "perm_level": 1,
-                "server_name": "111",
-                "xuid": "123"
-            },
-            {
-                "data": "NULL",
-                "device": "2",
-                "ip": "1",
-                "money": 252,
-                "name": "a",
-                "online": 2,
-                "perm_level": 2,
-                "server_name": "222",
-                "xuid": "321"
-            }
-        ]
-    }
-  }
-    ```
-  - 401 Unauthorized : 密钥超时
-    - 响应体：`{"code":401,"message": "Unauthorized"}`
-  - 403 Forbidden：验证失败
-    - 响应体：`{"code":403,"message": "false"}`
-  - 404 Not Found：资源不存在
-    - 响应体：`{"code":404,"message": "null"}`
----
 ### `POST /post_add_player`
 
-获取所有玩家信息。
+添加玩家白名单、添加玩家信息
 
 - 请求方式：POST
 - 路径示例：：/post_add_player
@@ -302,6 +185,69 @@ POST 请求
   - 400 Bad Request：客户端发送了一个错误的请求。
     - 响应体：`{"code":400,"message": "false"}`
 ---
+
+### `POST /getinformation_all`
+
+获取所有玩家信息。
+
+- 请求方式：POST
+- 路径示例：：/getinformation_all
+- 参数：
+  - 用户数据（JSON）：
+    - name：玩家名称
+    - t：t 值
+    - token：令牌
+    - 请求头：`"Content-Type: application/json"`
+- 请求体参数：
+```json
+{
+    "name": "banchen21",
+    "token": "65f254760c19ef38a9e808478fcef633",
+    "t": "1689344052555"
+}
+```
+- 响应：
+  - 200 OK：成功，返回所有玩家权限信息
+  ```json
+    {
+    "code": 200,
+    "message": {
+        "players": [
+            {
+                "data": "NULL",
+                "device": "1",
+                "ip": "1",
+                "money": 1000,
+                "name": "banchen21",
+                "online": 1,
+                "perm_level": 1,
+                "server_name": "111",
+                "xuid": "123"
+            },
+            {
+                "data": "NULL",
+                "device": "2",
+                "ip": "1",
+                "money": 252,
+                "name": "a",
+                "online": 2,
+                "perm_level": 2,
+                "server_name": "222",
+                "xuid": "321"
+            }
+        ]
+    }
+  }
+    ```
+  - 401 Unauthorized : 密钥超时
+    - 响应体：`{"code":401,"message": "Unauthorized"}`
+  - 403 Forbidden：验证失败
+    - 响应体：`{"code":403,"message": "false"}`
+  - 404 Not Found：资源不存在
+    - 响应体：`{"code":404,"message": "null"}`
+  - 400 Bad Request：客户端发送了一个错误的请求。
+    - 响应体：`{"code":400,"message": "false"}`
+---
 ## WS端接口说明
 ### Chat通信
 #### 消息发送格式
@@ -311,17 +257,24 @@ POST 请求
     "typestr":"chat",
     "data":"{
         "player_name":"玩家名",
-        "perm":"null"
+        "perm_level":"null",
+        "serverver_name":"发送这个消息的客户端",
         "data":"要广播到所有子服的消息"
     }"
 }
 ```
 #### 消息接受格式
  ```json
- {
-    "typestr":"chat",
-    "data":""
- }
+{
+  "data":{
+    "player_name":"string",
+    "perm_level":0,
+    "data":"chat_msg",
+    "serverver_name":"玩家进行游戏服务服务端名"
+  },
+  "typestr":"chat",
+  "serverver_name":"玩家发送消息的服务端民"
+}
 ```
 ---
 ## 其他说明
