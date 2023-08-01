@@ -9,3 +9,4 @@
         - [💰 LLMoney经济核心](/Submodules/LLMoney.md)
 - [📦 项目](/zh-cn/project/README.md)
     - [📝 SyncMc多端数据同步](/zh-cn/project/syn_mc.md)
+- [🎮︎ MC](/zh-cn/mc_j_folia/README.md)
